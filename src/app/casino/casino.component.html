@@ -1,0 +1,97 @@
+<div class="min-h-screen pt-24 px-4">
+    <div class="max-w-4xl mx-auto">
+        <section class="mb-16       mt-12">
+            <div class="md:grid-cols-2 items-center">
+                <div>
+                    <h4 class="text-xl md:text-5xl font-semibold mb-4">
+                        Casino
+                    </h4>
+                    <p class="text-base text-gray-300 mb-6">
+                        A web-based casino simulation platform developed as a university project,
+                        featuring three classic gambling games: Dice, Roulette, and Coinflip.
+                        Key features include:
+                    </p>
+
+                    <ul class="mt-4 space-y-2">
+                        <li *ngFor="let feature of features" class="flex items-start gap-2">
+                            <span class="text-gray-300">•</span>
+                            <span *ngIf="feature.title!=''" class="text-gray-300 text-base font-bold">{{ feature.title }}</span><span class="text-gray-300 text-base">{{ feature.description }}</span>
+                        </li>
+                    </ul>
+
+                    <div class="mockup-browser bg-base-300 border mt-12">
+                        <div class="mockup-browser-toolbar">
+                        </div>
+
+                        <img src="assets/images/casino-guest-page.png" alt="Luckytap" class="rounded">
+                    </div>
+                    <p class="text-base text-gray-300 mt-2 mb-6 font-thin">Guest view in the landing page of the app.</p>
+
+                    <div class="mockup-browser bg-base-300 border mt-12">
+                        <div class="mockup-browser-toolbar">
+                        </div>
+
+                        <img src="assets/images/casino-login-dice.png" alt="Luckytap" class="rounded">
+                    </div>
+                    <p class="text-base text-gray-300 mt-2 mb-6 font-thin">Menu with functionalities and dice game after successful login.</p>
+
+
+                    <div class="mockup-browser bg-base-300 border mt-12">
+                        <div class="mockup-browser-toolbar">
+                        </div>
+
+                        <img src="assets/images/casino-roulette.png" alt="Luckytap" class="rounded">
+                    </div>
+                    <p class="text-base text-gray-300 mt-2 mb-6 font-thin">Showcase of the Roulette game.</p>
+
+                    <div class="mockup-browser bg-base-300 border mt-12">
+                        <div class="mockup-browser-toolbar">
+                        </div>
+
+                        <img src="assets/images/casino-coinflip.png" alt="Luckytap" class="rounded">
+                    </div>
+                    <p class="text-base text-gray-300 mt-2 mb-6 font-thin">Showcase of the Coinflip game.</p>
+
+                    <p class="text-base text-gray-300 mb-6  ">
+                        Source code and short showcase can be found under
+                        <a href="https://github.com/arthures11/casino"
+                           class="underline inline text-blue-600"> this link. </a>
+
+                    </p>
+
+                    <p class="text-3xl font-bold mb-4 mt-12">
+                        My role in the project
+                    </p>
+                    <p class="text-base text-gray-300 mb-6  ">
+                        I've played major part in this project as a full-stack developer.
+                        Design and codebase was mostly written by myself, however my team member managed
+                        to design the coin-flip game himself.
+                    </p>
+                    <p class="text-3xl font-bold mb-4 mt-12">
+                        Technology
+                    </p>
+
+                    <div *ngFor="let category of skills">
+                        <div class="flex flex-wrap gap-2 mb-2">
+        <span *ngFor="let skill of category.items" class="flex items-center space-x-2 px-3 py-1 bg-gray-800 rounded-full text-sm">
+          <img *ngIf="logos[skill]" [src]="logos[skill]" alt="{{ skill }} logo" class="w-5 h-5">
+          <span>{{ skill }}</span>
+        </span>
+                        </div>
+
+                    </div>
+
+<!--                    <p class="text-base text-gray-300 mb-6">-->
+<!--                        Interface of this app was designed with the help of Bootstrap Studio.-->
+
+<!--                    </p>-->
+                </div>
+            </div>
+        </section>
+
+
+
+    </div>
+
+    <app-footer></app-footer>
+</div>

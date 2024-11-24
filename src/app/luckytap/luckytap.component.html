@@ -1,0 +1,93 @@
+<div class="min-h-screen pt-24 px-4">
+    <div class="max-w-4xl mx-auto">
+        <section class="mb-16       mt-12">
+            <div class="md:grid-cols-2 items-center">
+                <div>
+                    <h4 class="text-xl md:text-5xl font-semibold mb-4">
+                        Luckytap
+                    </h4>
+                    <p class="text-base text-gray-300 mb-6">
+                        This project is a blockchain-based mini-game platform leveraging the XRP (Ripple) ledger.
+                        The application allows users to immediately deposit and withdraw funds in XRP,
+                        and the core gameplay revolves around a highly optimized "tapping"
+                        mechanism where players can perform tens of thousands of taps per second thanks to
+                        high performance websocket implementation with binary inputs and outputs.
+
+                    </p>
+                    <p class="text-base text-gray-300 mb-6">
+                        The platform emphasizes high performance, secure transaction handling,
+                        and a user-friendly experience. Key features include:
+                    </p>
+                    <ul class="mt-4 space-y-2">
+                        <li *ngFor="let feature of features" class="flex items-start gap-2">
+                            <span class="text-gray-300">•</span>
+                            <span class="text-gray-300 text-base font-bold">{{ feature.title }}</span><span class="text-gray-300 text-base">{{ feature.description }}</span>
+                        </li>
+                    </ul>
+
+                    <div class="mockup-browser bg-base-300 border mt-12">
+                        <div class="mockup-browser-toolbar">
+                            <div class="input">https://luckytap.fun</div>
+                        </div>
+
+                        <img src="assets/images/luckytap-main-large.png" alt="Luckytap" class="rounded">
+                    </div>
+                    <p class="text-base text-gray-300 mt-2 mb-6 font-thin">App can be visited under the link <a href="https://www.luckytap.it/play" class="text-blue-500 inline"> https://luckytap.it/play </a></p>
+
+                    <div class="mockup-browser bg-base-300 border mt-12">
+                        <!-- Aspect Ratio Wrapper -->
+                        <div style="position: relative; width: 100%; padding-bottom: 56.25%;">
+                            <!-- Iframe Embed -->
+                            <iframe
+                                    class="absolute top-0 left-0 w-full h-full"
+                                    src="https://www.youtube-nocookie.com/embed/NV8AYo6-ggg"
+                                    title="YouTube video player"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen>
+                            </iframe>
+
+                        </div>
+                    </div>
+                    <p class="text-base text-gray-300 mt-2 mb-6 font-thin">   Quick & short showcase of the project v1.0.0 (does not include many features).</p>
+<!--                    https://youtu.be/NV8AYo6-ggg-->
+
+
+
+
+                    <p class="text-3xl font-bold mb-4 mt-12">
+                        My role in the project
+                    </p>
+                    <p class="text-base text-gray-300 mb-6  ">
+                        I was the sole developer of the project, responsible for the entire architecture,
+                        design, codebase, testing and deployment of the backend services needed for the application to function.
+
+                    </p>
+                    <p class="text-3xl font-bold mb-4 mt-12">
+                        Technology
+                    </p>
+
+                        <div *ngFor="let category of skills">
+                            <div class="flex flex-wrap gap-2 mb-2">
+        <span *ngFor="let skill of category.items" class="flex items-center space-x-2 px-3 py-1 bg-gray-800 rounded-full text-sm">
+          <img *ngIf="logos[skill]" [src]="logos[skill]" alt="{{ skill }} logo" class="w-5 h-5">
+          <span>{{ skill }}</span>
+        </span>
+                            </div>
+
+                    </div>
+
+                    <p class="text-base text-gray-300 mb-6">
+                        The project prioritized efficiency and performance, aiming to handle tens of thousands of taps per second with minimal latency. To achieve this,
+                        I've also used TimescaleDB extension for PostgreSQL which ensures efficient data storage and processing for millions of user's taps.
+
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+
+    </div>
+
+    <app-footer></app-footer>
+</div>

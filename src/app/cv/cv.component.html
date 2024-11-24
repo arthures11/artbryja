@@ -1,0 +1,116 @@
+<div class="min-h-screen pt-24 px-4">
+    <div class="max-w-6xl mx-auto">
+<!--        <div class="flex justify-between items-center mb-12">-->
+<!--            <h1 class="text-4xl font-bold">CV</h1>-->
+<!--            <a href="/assets/cv.pdf"-->
+<!--               target="_blank"-->
+<!--               class="px-4 py-2 bg-blue-600 rounded hover:bg-blue-700 transition-colors">-->
+<!--                Download PDF-->
+<!--            </a>-->
+<!--        </div>-->
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-6">Experience</h2>
+            <div class="space-y-8">
+                <div *ngFor="let exp of experience"
+                     class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="text-gray-400">{{exp.period}}</div>
+                    <div class="md:col-span-3">
+                        <h3 class="text-xl font-bold">{{exp.company}}</h3>
+                        <div class="text-gray-300 mb-2">{{exp.position}}</div>
+                        <p class="text-gray-400">{{exp.description}}</p>
+                        <ul class="mt-4 space-y-2">
+                            <li *ngFor="let achievement of exp.achievements"
+                                class="flex items-start gap-2">
+                                <span class="text-blue-400">•</span>
+                                <span>{{achievement}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12 border-t border-gray-600">
+            <h2 class="text-2xl font-bold mb-6 mt-8">Education</h2>
+            <div class="space-y-8">
+                <div *ngFor="let edu of education"
+                     class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="text-gray-400">{{edu.period}}</div>
+                    <div class="md:col-span-3">
+                        <h3 class="text-xl font-bold">{{edu.institution}}</h3>
+                        <div class="text-gray-300">{{edu.degree}}</div>
+                        <p *ngIf="edu.description"
+                           class="text-gray-400 mt-2">
+                            {{edu.description}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12 border-t border-gray-600">
+            <h2 class="text-2xl font-bold mb-6 mt-8">Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div *ngFor="let category of skills">
+                    <h3 class="font-bold mb-3">{{ category.name }}</h3>
+                    <div class="flex flex-wrap gap-2">
+        <span *ngFor="let skill of category.items" class="flex items-center space-x-2 px-3 py-1 bg-gray-800 rounded-full text-sm">
+          <img *ngIf="logos[skill]" [src]="logos[skill]" alt="{{ skill }} logo" class="w-5 h-5">
+          <span>{{ skill }}</span>
+        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12 border-t border-gray-600">
+            <h2 class="text-2xl font-bold mb-6 mt-8">Certificates & Qualifications </h2>
+            <div class="space-y-2">
+                <div *ngFor="let certs of certs"
+                     class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="text-gray-400">{{certs.period}}</div>
+                    <div class="md:col-span-3">
+                        <div class="text-gray-300">{{certs.name}}</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mb-12 border-t border-gray-600">
+            <h2 class="text-2xl font-bold mb-6 mt-8">Awards </h2>
+            <div class="space-y-2">
+                <div *ngFor="let certs of awards"
+                     class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="text-gray-400">{{certs.period}}</div>
+                    <div class="md:col-span-3">
+                        <div class="text-gray-300">{{certs.name}}</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mb-12 border-t border-gray-600">
+            <h2 class="text-2xl font-bold mb-6 mt-8">Other</h2>
+            <div class="space-y-2">
+                <div *ngFor="let other of other" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="text-gray-400">{{other.period}}</div>
+                    <div class="md:col-span-3">
+                        <div class="flex items-center space-x-2">
+                            <span class="text-gray-300">{{other.name}}</span>
+                            <a *ngIf="other.link!==''" href="{{other.link}}" target="_blank" class="text-blue-500 hover:text-blue-700">
+                                <svg fill="currentColor" width="24px" height="24px" viewBox="0 0 36 36" version="1.1" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <title>pop-out-line</title>
+                                    <path class="clr-i-outline clr-i-outline-path-1" d="M27,33H5a2,2,0,0,1-2-2V9A2,2,0,0,1,5,7H15V9H5V31H27V21h2V31A2,2,0,0,1,27,33Z"></path>
+                                    <path class="clr-i-outline clr-i-outline-path-2" d="M18,3a1,1,0,0,0,0,2H29.59L15.74,18.85a1,1,0,1,0,1.41,1.41L31,6.41V18a1,1,0,0,0,2,0V3Z"></path>
+                                    <rect x="0" y="0" width="36" height="36" fill-opacity="0"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+    <app-footer></app-footer>
+</div>
