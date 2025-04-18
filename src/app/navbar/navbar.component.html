@@ -1,25 +1,13 @@
 <nav class="fixed top-0 w-full bg-black bg-opacity-95 text-white p-4 z-50">
     <div class="relative flex items-center">
-        <a [routerLink]="menuItems[0].path" class="text-base font-medium flex items-center gap-2">
-
-        <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center
-     transform transition-all duration-700 ease-out"
-             [class.opacity-0]="!(showAvatar$ | async)"
-             [class.opacity-100]="showAvatar$ | async"
-             [class.translate-y-4]="!(showAvatar$ | async)"
-             [class.translate-y-0]="showAvatar$ | async">
-            <img [src]="'assets/images/avatar.png'" alt="image">
-        </div>
-
-        <span class="ml-2 transition-all duration-700 ease-out transform text-base font-medium"
-              [class.opacity-0]="!(showAvatar$ | async)"
-              [class.opacity-100]="showAvatar$ | async"
-              [class.translate-y-4]="!(showAvatar$ | async)"
-              [class.translate-y-0]="showAvatar$ | async">
-    Artur Bryja
-</span>
+        <!-- Left-aligned Maddie Cox -->
+        <a routerLink="/" class="text-base font-medium flex items-center gap-2">
+            <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center">
+                <img [src]="'assets/images/avatar.png'" alt="image">
+            </div>
+            Artur Bryja
         </a>
-<!--        text-base font-medium flex items-center gap-2-->
+
         <!-- Center-aligned Menu -->
         <div class="absolute left-1/2 transform -translate-x-1/2 hidden md:flex space-x-6">
             <a *ngFor="let item of menuItems"
@@ -46,10 +34,9 @@
         <div class="px-2 pt-2 pb-3 space-y-1">
             <a *ngFor="let item of menuItems"
                [routerLink]="item.path"
-               routerLinkActive="text-blue-400"
-               [routerLinkActiveOptions]="{exact: true}"
+               routerLinkActive="bg-gray-700"
                class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 transition-colors"
-               (click)="handleMobileClick(item.path)">
+               (click)="toggleMobileMenu()">
                 {{ item.label }}
             </a>
         </div>
