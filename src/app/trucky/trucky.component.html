@@ -1,35 +1,51 @@
+
 <div class="min-h-screen pt-24 px-4">
     <div class="max-w-4xl mx-auto">
         <section class="mb-16       mt-12">
             <div class="md:grid-cols-2 items-center">
                 <div>
-                    <h4 class="text-xl md:text-5xl font-semibold mb-4">
+                    <h4 class="text-xl md:text-5xl font-semibold mb-4 text-gray-300">
                         Trucky
                     </h4>
                     <p class="text-base text-gray-300 mb-6">
                         Trucky is a comprehensive CRUD web application designed to automate and optimize the
-                        operations of logistics, forwarding, and transportation companies. It replaces traditional paper-based workflows and
-                        basic spreadsheet usage with a centralized, intelligent system to streamline daily tasks, enhance productivity,
+                        operations of logistics, forwarding, and transportation. It replaces traditional
+                        paper-based workflows and
+                        basic spreadsheet usage with a centralized, intelligent system to streamline daily tasks,
+                        enhance productivity,
                         and improve competitiveness in the transport services market.
 
 
                     </p>
                     <p class="text-base text-gray-300 mb-6">
-                        The system is tailored to meet the specific needs of transport company, focusing on process automation,
+                        The system is tailored to meet the specific needs of transport company, focusing on process
+                        automation,
                         legal compliance, and real-time collaboration. Trucky offers features that simplify employee and
-                        subcontractor management, scheduling, task allocation, real-time vehicle tracking, and communication between all stakeholders.
+                        subcontractor management, scheduling, task allocation, real-time vehicle tracking, and
+                        communication between all stakeholders.
 
                     </p>
                     <p class="text-base text-gray-300 mb-6">
                         The platform emphasizes high performance, secure transaction handling,
                         and a user-friendly experience. Key features include:
                     </p>
-                    <ul class="mt-4 space-y-2">
-                        <li *ngFor="let feature of features" class="flex items-start gap-2">
-                            <span class="text-gray-300">•</span>
-                            <span *ngIf="feature.title!=''" class="text-gray-300 text-base font-bold">{{ feature.title }}</span><span class="text-gray-300 text-base">{{ feature.description }}</span>
-                        </li>
-                    </ul>
+                    <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
+
+                        <div *ngFor="let feature of features"
+                             class="flex flex-col justify-center p-4 rounded-2xl shadow bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-[1.02]">
+
+                            <h3 *ngIf="feature.title"
+                                class="text-xl text-center font-semibold mb-2 text-gray-900 dark:text-white">
+                                {{ feature.title }}
+                            </h3>
+
+                            <p class="text-center text-gray-700 dark:text-gray-300">
+                                {{ feature.description }}
+                            </p>
+
+                        </div>
+
+                    </div>
 
                     <div class="mockup-browser bg-base-300 border mt-12">
                         <div class="mockup-browser-toolbar">
@@ -45,38 +61,42 @@
 
                         <img src="assets/images/trucky-profile.png" alt="Luckytap" class="rounded">
                     </div>
-                    <p class="text-base text-gray-300 mt-2 mb-6 font-thin">Menu with functionalities of the app and profile page.</p>
+                    <p class="text-base text-gray-300 mt-2 mb-6 font-thin">Menu with functionalities of the app and
+                        profile page.</p>
 
 
                     <p class="text-base text-gray-300 mb-2  ">
-                        Major part of the features can be found in the Google Slide presentation showcasing the app under
+                        Major part of the features can be found in the Google Slide presentation showcasing the app
+                        under
                         <a href="https://docs.google.com/presentation/d/1hRhjmBrJF0FYCXDv-TFWS0Ok9dzCq97G/edit?usp=sharing&ouid=115223096533221648775&rtpof=true&sd=true"
                            class="underline inline text-blue-600"> this link. </a>
 
                     </p>
                     <p class="text-base text-gray-300 mb-6  ">
-                        Source code and short showcase is also available on GitHub using
+                        Source code of the initial version and short showcase is also available on GitHub using
                         <a href="https://github.com/arthures11/truckapp"
                            class="underline inline text-blue-600"> this link. </a>
 
                     </p>
 
-                    <p class="text-3xl font-bold mb-4 mt-12">
+                    <p class="text-3xl font-bold mb-4 mt-12 text-gray-300">
                         My role in the project
                     </p>
                     <p class="text-base text-gray-300 mb-6  ">
-                        One-man-army project, I was responsible for the entire project lifecycle including design and codebase.
+                        One-man-army project, I was responsible for the entire project lifecycle including design and
+                        codebase.
 
                     </p>
-                    <p class="text-3xl font-bold mb-4 mt-12">
+                    <p class="text-3xl font-bold mb-4 mt-12 text-gray-300">
                         Technology
                     </p>
 
                     <div *ngFor="let category of skills">
                         <div class="flex flex-wrap gap-2 mb-2">
-        <span *ngFor="let skill of category.items" class="flex items-center space-x-2 px-3 py-1 bg-gray-800 rounded-full text-sm">
+        <span *ngFor="let skill of category.items"
+              class="flex items-center space-x-2 px-3 py-1 bg-gray-800 rounded-full text-sm">
           <img *ngIf="logos[skill]" [src]="logos[skill]" alt="{{ skill }} logo" class="w-5 h-5">
-          <span>{{ skill }}</span>
+          <span class="text-gray-300">{{ skill }}</span>
         </span>
                         </div>
 
@@ -90,9 +110,12 @@
             </div>
         </section>
 
-
+        <a routerLink="/projects"
+           class="group flex justify-end items-center gap-2 px-4 py-2 text-white rounded-xl shadow-md transition duration-300 hover:bg-base hover:shadow-lg active:scale-95">
+            <span class="text-lg transition-transform group-hover:-translate-x-1">←</span>
+            <span>back to Projects</span>
+        </a>
 
     </div>
 
-    <app-footer></app-footer>
 </div>

@@ -1,57 +1,60 @@
-<app-navbar></app-navbar>
+
 <div class="min-h-screen pt-24 px-4">
     <div class="max-w-6xl mx-auto">
-<section class="mb-16">
-    <h2 class="text-2xl font-bold mb-8">Featured Projects</h2>
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-8 text-gray-300">Featured Projects</h2>
 
-<!--    <div class="flex items-center mb-8">-->
-<!--    <span-->
-<!--            [class.text-blue-600]="selectedType === 'Commercial'"-->
-<!--            class="mr-4 cursor-pointer"-->
-<!--            (click)="switchProjectType('Commercial')">-->
-<!--      Commercial-->
-<!--    </span>-->
-<!--        <label class="relative inline-flex items-center cursor-pointer">-->
-<!--            <input type="checkbox" class="sr-only peer" (change)="toggleProjectType()" />-->
-<!--            <div class="w-11 h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-600 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>-->
-<!--        </label>-->
-<!--        <span-->
-<!--                [class.text-blue-600]="selectedType === 'Educational'"-->
-<!--                class="ml-4 cursor-pointer"-->
-<!--                (click)="switchProjectType('Educational')">-->
-<!--      Other-->
-<!--    </span>-->
-<!--    </div>-->
-    <div class="flex items-center mb-8 space-x-6">
+            <!--    <div class="flex items-center mb-8">-->
+            <!--    <span-->
+            <!--            [class.text-blue-600]="selectedType === 'Commercial'"-->
+            <!--            class="mr-4 cursor-pointer"-->
+            <!--            (click)="switchProjectType('Commercial')">-->
+            <!--      Commercial-->
+            <!--    </span>-->
+            <!--        <label class="relative inline-flex items-center cursor-pointer">-->
+            <!--            <input type="checkbox" class="sr-only peer" (change)="toggleProjectType()" />-->
+            <!--            <div class="w-11 h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-600 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>-->
+            <!--        </label>-->
+            <!--        <span-->
+            <!--                [class.text-blue-600]="selectedType === 'Educational'"-->
+            <!--                class="ml-4 cursor-pointer"-->
+            <!--                (click)="switchProjectType('Educational')">-->
+            <!--      Other-->
+            <!--    </span>-->
+            <!--    </div>-->
+            <div class="flex items-center mb-8 space-x-6">
   <span
           [class.text-blue-600]="selectedType === 'Commercial'"
+          [class.text-gray-300]="selectedType != 'Commercial'"
           class="cursor-pointer text-xl font-semibold hover:text-blue-700 transition"
-          (click)="switchProjectType('Commercial')">
-    Main
+  >
+    Commercial & Main
   </span>
 
-        <label class="relative inline-flex items-center cursor-pointer">
-            <input [ngModel]="selectedType === 'Educational'" type="checkbox" class="sr-only peer" (change)="toggleProjectType()" />
-            <div class="w-14 h-8 bg-gray-300 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-600 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-1 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-        </label>
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input [ngModel]="selectedType === 'Educational'" type="checkbox" class="sr-only peer"
+                           (change)="toggleProjectType()"/>
+                    <div class="w-14 h-8 bg-gray-300 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-600 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-1 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                </label>
 
-        <span
-                [class.text-blue-600]="selectedType === 'Educational'"
-                class="cursor-pointer text-xl font-semibold hover:text-blue-700 transition"
-                (click)="switchProjectType('Educational')">
+                <span
+                        [class.text-blue-600]="selectedType === 'Educational'"
+                        [class.text-gray-300]="selectedType != 'Educational'"
+                        class="cursor-pointer text-xl font-semibold hover:text-blue-700 transition"
+                >
     Other
   </span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 ">
+                <app-project-card
+                        *ngFor="let project of filteredProjects"
+                        [project]="project">
+                </app-project-card>
+
+            </div>
+
+        </section>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 ">
-        <app-project-card
-                *ngFor="let project of filteredProjects"
-                [project]="project">
-        </app-project-card>
-
-        </div>
-
-</section>
-    </div>
-    <app-footer></app-footer>
 </div>

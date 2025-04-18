@@ -1,0 +1,1 @@
+import{j as e}from"./index-CH7LgeOh.js";function n(){return console.log("LazyLoadedComponentA rendered"),e.jsxs("div",{className:"p-4 bg-pink-50 rounded border border-pink-200",children:[e.jsx("h3",{className:"text-lg font-semibold text-pink-800",children:"Lazy Loaded Component A"}),e.jsx("p",{children:"This component was loaded on demand!"})]})}export{n as default};

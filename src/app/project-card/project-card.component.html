@@ -3,25 +3,25 @@
          class="relative w-full bg-gray-800 overflow-y: inherit rounded-t-lg">
         <img [src]="project.image"
              [alt]="project.title"
-             class="w-full h-full object-cover transform transition-transform duration-200 hover:scale-110">
+             class="w-full h-full object-cover transform transition-transform duration-200 hover:scale-110 rounded-lg">
     </div>
 
     <div class="p-6 flex flex-col flex-grow">
-        <h3 class="text-xl font-bold mb-2">{{project.title}}</h3>
-        <div class="text-gray-400 mb-2">{{project.role}}, {{project.year}}</div>
-        <p class="text-gray-300 mb-4 flex-grow">{{project.description}}</p>
+        <h3 class="text-xl font-bold mb-2 text-gray-300">{{ project.title }}</h3>
+        <div class="text-gray-400 mb-2">{{ project.role }}, {{ project.year }}</div>
+        <p class="text-gray-300 mb-4 flex-grow">{{ project.description }}</p>
 
         <div class="flex flex-wrap gap-3 mb-4 mt-auto">
             <div *ngFor="let tech of project.technologies" class="tooltip" [attr.data-tip]="tech.name">
                 <img [src]="tech.icon"
                      [alt]="tech.name"
-                     class="w-5 h-5 object-cover">
+                     class="w-5 h-5 object-cover hover:scale-150">
             </div>
         </div>
         <!-- Button stays at the bottom -->
-        <div class="mt-auto">
-            <a [href]="project.link"
-               class="inline-flex items-center gap-2 px-4 py-2 bg-gray-700 rounded hover:bg-gray-600 transition-colors">
+        <div *ngIf="!project.title.includes('More')" class="mt-auto">
+            <a [routerLink]="project.link"
+               class="inline-flex items-center gap-2 px-4 py-2 bg-gray-700 rounded hover:bg-gray-600 transition-colors text-gray-300">
                 View project
                 <svg xmlns="http://www.w3.org/2000/svg"
                      class="h-4 w-4"
@@ -31,7 +31,23 @@
                     <path strokeLinecap="round"
                           strokeLinejoin="round"
                           strokeWidth="2"
-                          d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                          d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+            </a>
+        </div>
+        <div *ngIf="project.title.includes('More')" class="mt-auto">
+            <a href="{{project.link}}"
+               class="inline-flex items-center gap-2 px-4 py-2 bg-gray-700 rounded hover:bg-gray-600 transition-colors text-gray-300">
+                View GitHub
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="h-4 w-4"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke="currentColor">
+                    <path strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                 </svg>
             </a>
         </div>

@@ -1,0 +1,158 @@
+
+<div class="min-h-screen pt-24 px-4" xmlns="http://www.w3.org/1999/html">
+    <div class="max-w-4xl mx-auto">
+        <section class="mb-16       mt-12">
+            <div class="md:grid-cols-2 items-center">
+                <div>
+
+                    <h4 class="text-xl md:text-5xl font-semibold mb-4 text-gray-300">
+                        Copilot
+                    </h4>
+                    <p class="text-base font-bold text-gray-300 mb-3">
+                        Due to the internal structure, this description is intentionally concise, focusing on the core
+                        purpose and key features of the
+                        application while highlighting my involvement in its development.
+                    </p>
+                    <div class="mockup-browser bg-base-300 border mt-2 mb-3">
+
+                        <img src="assets/images/nextera-logo.png" alt="nextEraLogo" class="rounded">
+                    </div>
+                    <p class="text-base text-gray-300 mb-6">
+                        As part of my work for
+                        <a href="https://www.nexteraenergy.com/"
+                           class="underline inline text-blue-600"> Next Era Energy</a>, I contribute to the development
+                        of PGD Copilot,
+                        an internal AI-powered chat application tailored to support technicians working with solar and
+                        wind energy devices.
+                        This tool leverages advanced artificial intelligence to deliver real-time access to schematics,
+                        troubleshooting guides,
+                        and expert guidance, enabling technicians to resolve issues efficiently and effectively within
+                        the
+                        company’s renewable energy operations.
+                    </p>
+
+                    <p class="text-base text-gray-300 mb-6 mt-5">
+                        The application prioritizes secure access, seamless information retrieval,
+                        and a practical user experience. Key features include:
+
+
+                    </p>
+                    <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
+
+                        <div *ngFor="let feature of features"
+                             class="flex flex-col justify-center p-4 rounded-2xl shadow bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-[1.02]">
+
+                            <h3 *ngIf="feature.title"
+                                class="text-xl text-center font-semibold mb-2 text-gray-900 dark:text-white">
+                                {{ feature.title }}
+                            </h3>
+
+                            <p class="text-center text-gray-700 dark:text-gray-300">
+                                {{ feature.description }}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div (click)="openPhoto(pgdCop1)" class="mockup-browser bg-base-300 border mt-10 relative group">
+                        <div class="mockup-browser-toolbar">
+                        </div>
+                        <img ngSrc="assets/images/pgdcop1.png" alt="nextEraLogo" class="rounded"
+                             height="1238" width="2560">
+                        <div class="absolute inset-0 flex items-center justify-center transition-opacity duration-300 ease-in-out">
+
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 class="h-24 w-24 text-black/30 group-hover:text-black group-hover:scale-150 transform transition-all duration-300"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                            </svg>
+
+                        </div>
+
+                    </div>
+                    <div (click)="openPhoto(pgdCop2)" class="mockup-browser bg-base-300 border mt-2 relative group">
+                        <div class="mockup-browser-toolbar">
+                        </div>
+                        <img ngSrc="assets/images/pgdcop2.png" alt="nextEraLogo" class="rounded"
+                             height="1238" width="2560">
+                        <div class="absolute inset-0 flex items-center justify-center transition-opacity duration-300 ease-in-out">
+
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 class="h-24 w-24 text-black/30 group-hover:text-black group-hover:scale-150 transform transition-all duration-300"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                            </svg>
+
+                        </div>
+
+                    </div>
+                    <p class="text-3xl font-bold mb-4 mt-12 text-gray-300">
+                        My role in the project
+                    </p>
+                    <p class="text-base text-gray-300 mb-6  ">
+                        In this project, I am mainly responsible for the front-end development using Angular,
+                        where I focus on building and maintaining the user interface. My responsibilities go beyond
+                        initial development - I
+                        actively work on implementing new features to meet user needs and improve the overall
+                        experience.
+                        Very often, I collaborate closely with the design team and back-end team to ensure smooth
+                        integration between the front-end and back-end systems,
+                        troubleshooting any issues that arise from their interaction. I also play a role in identifying
+                        and fixing bugs, not only within the front-end code but also those stemming from the back-end,
+                        taking a proactive
+                        approach to ensure the application remains reliable and performs efficiently.
+
+
+                    </p>
+
+
+                    <p class="text-3xl font-bold mb-4 mt-12 text-gray-300">
+                        Technology
+                    </p>
+
+                    <div *ngFor="let category of skills">
+                        <div class="flex flex-wrap gap-2 mb-2">
+        <span *ngFor="let skill of category.items"
+              class="flex items-center space-x-2 px-3 py-1 bg-gray-800 rounded-full text-sm">
+          <img *ngIf="logos[skill]" [src]="logos[skill]" alt="{{ skill }} logo" class="w-5 h-5">
+          <span class="text-gray-300">{{ skill }}</span>
+        </span>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+        <a routerLink="/projects"
+           class="group flex justify-end items-center gap-2 px-4 py-2 text-white rounded-xl shadow-md transition duration-300 hover:bg-base hover:shadow-lg active:scale-95">
+            <span class="text-lg transition-transform group-hover:-translate-x-1">←</span>
+            <span>back to Projects</span>
+        </a>
+
+
+    </div>
+    <dialog id="enlarge-pgd" class="modal">
+        <div class="modal-box max-w-[88vw] max-h-[88vh] w-full h-full sm-w-[33vw] sm-h-[33vh] flex items-center justify-center">
+            <form method="dialog">
+                <button class="btn btn-sm btn-circle bg-red-500 hover:bg-red-800 absolute right-2 top-2">✕</button>
+            </form>
+            <img [src]="selectedPhoto" (click)="closeModal()" alt="Photo"
+                 class="max-w-full max-h-full object-contain rounded-lg"/>
+        </div>
+        <form method="dialog" class="modal-backdrop">
+            <button>close</button>
+        </form>
+    </dialog>
+
+
+</div>
