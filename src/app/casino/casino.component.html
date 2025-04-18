@@ -1,9 +1,10 @@
+
 <div class="min-h-screen pt-24 px-4">
     <div class="max-w-4xl mx-auto">
         <section class="mb-16       mt-12">
             <div class="md:grid-cols-2 items-center">
                 <div>
-                    <h4 class="text-xl md:text-5xl font-semibold mb-4">
+                    <h4 class="text-xl md:text-5xl font-semibold mb-4 text-gray-300">
                         Casino
                     </h4>
                     <p class="text-base text-gray-300 mb-6">
@@ -12,12 +13,23 @@
                         Key features include:
                     </p>
 
-                    <ul class="mt-4 space-y-2">
-                        <li *ngFor="let feature of features" class="flex items-start gap-2">
-                            <span class="text-gray-300">•</span>
-                            <span *ngIf="feature.title!=''" class="text-gray-300 text-base font-bold">{{ feature.title }}</span><span class="text-gray-300 text-base">{{ feature.description }}</span>
-                        </li>
-                    </ul>
+                    <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
+
+                        <div *ngFor="let feature of features"
+                             class="flex flex-col justify-center p-4 rounded-2xl shadow bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-[1.02]">
+
+                            <h3 *ngIf="feature.title"
+                                class="text-xl text-center font-semibold mb-2 text-gray-900 dark:text-white">
+                                {{ feature.title }}
+                            </h3>
+
+                            <p class="text-center text-gray-700 dark:text-gray-300">
+                                {{ feature.description }}
+                            </p>
+
+                        </div>
+
+                    </div>
 
                     <div class="mockup-browser bg-base-300 border mt-12">
                         <div class="mockup-browser-toolbar">
@@ -25,7 +37,8 @@
 
                         <img src="assets/images/casino-guest-page.png" alt="Luckytap" class="rounded">
                     </div>
-                    <p class="text-base text-gray-300 mt-2 mb-6 font-thin">Guest view in the landing page of the app.</p>
+                    <p class="text-base text-gray-300 mt-2 mb-6 font-thin">Guest view in the landing page of the
+                        app.</p>
 
                     <div class="mockup-browser bg-base-300 border mt-12">
                         <div class="mockup-browser-toolbar">
@@ -33,7 +46,8 @@
 
                         <img src="assets/images/casino-login-dice.png" alt="Luckytap" class="rounded">
                     </div>
-                    <p class="text-base text-gray-300 mt-2 mb-6 font-thin">Menu with functionalities and dice game after successful login.</p>
+                    <p class="text-base text-gray-300 mt-2 mb-6 font-thin">Menu with functionalities and dice game after
+                        successful login.</p>
 
 
                     <div class="mockup-browser bg-base-300 border mt-12">
@@ -59,7 +73,7 @@
 
                     </p>
 
-                    <p class="text-3xl font-bold mb-4 mt-12">
+                    <p class="text-3xl font-bold mb-4 mt-12 text-gray-300">
                         My role in the project
                     </p>
                     <p class="text-base text-gray-300 mb-6  ">
@@ -67,31 +81,36 @@
                         Design and codebase was mostly written by myself, however my team member managed
                         to design the coin-flip game himself.
                     </p>
-                    <p class="text-3xl font-bold mb-4 mt-12">
+                    <p class="text-3xl font-bold mb-4 mt-12 text-gray-300">
                         Technology
                     </p>
 
                     <div *ngFor="let category of skills">
                         <div class="flex flex-wrap gap-2 mb-2">
-        <span *ngFor="let skill of category.items" class="flex items-center space-x-2 px-3 py-1 bg-gray-800 rounded-full text-sm">
+        <span *ngFor="let skill of category.items"
+              class="flex items-center space-x-2 px-3 py-1 bg-gray-800 rounded-full text-sm">
           <img *ngIf="logos[skill]" [src]="logos[skill]" alt="{{ skill }} logo" class="w-5 h-5">
-          <span>{{ skill }}</span>
+          <span class="text-gray-300">{{ skill }}</span>
         </span>
                         </div>
 
                     </div>
 
-<!--                    <p class="text-base text-gray-300 mb-6">-->
-<!--                        Interface of this app was designed with the help of Bootstrap Studio.-->
+                    <!--                    <p class="text-base text-gray-300 mb-6">-->
+                    <!--                        Interface of this app was designed with the help of Bootstrap Studio.-->
 
-<!--                    </p>-->
+                    <!--                    </p>-->
                 </div>
             </div>
         </section>
 
-
+        <a routerLink="/projects"
+           class="group flex justify-end items-center gap-2 px-4 py-2 text-white rounded-xl shadow-md transition duration-300 hover:bg-base hover:shadow-lg active:scale-95">
+            <span class="text-lg transition-transform group-hover:-translate-x-1">←</span>
+            <span>back to Projects</span>
+        </a>
 
     </div>
 
-    <app-footer></app-footer>
+
 </div>

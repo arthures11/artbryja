@@ -1,9 +1,10 @@
+
 <div class="min-h-screen pt-24 px-4">
     <div class="max-w-4xl mx-auto">
         <section class="mb-16       mt-12">
             <div class="md:grid-cols-2 items-center">
                 <div>
-                    <h4 class="text-xl md:text-5xl font-semibold mb-4">
+                    <h4 class="text-xl md:text-5xl font-semibold mb-4 text-gray-300">
                         Luckytap
                     </h4>
                     <p class="text-base text-gray-300 mb-6">
@@ -18,12 +19,23 @@
                         The platform emphasizes high performance, secure transaction handling,
                         and a user-friendly experience. Key features include:
                     </p>
-                    <ul class="mt-4 space-y-2">
-                        <li *ngFor="let feature of features" class="flex items-start gap-2">
-                            <span class="text-gray-300">•</span>
-                            <span class="text-gray-300 text-base font-bold">{{ feature.title }}</span><span class="text-gray-300 text-base">{{ feature.description }}</span>
-                        </li>
-                    </ul>
+                    <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
+
+                        <div *ngFor="let feature of features"
+                             class="flex flex-col justify-center p-4 rounded-2xl shadow bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-[1.02]">
+
+                            <h3 *ngIf="feature.title"
+                                class="text-xl text-center font-semibold mb-2 text-gray-900 dark:text-white">
+                                {{ feature.title }}
+                            </h3>
+
+                            <p class="text-center text-gray-700 dark:text-gray-300">
+                                {{ feature.description }}
+                            </p>
+
+                        </div>
+
+                    </div>
 
                     <div class="mockup-browser bg-base-300 border mt-12">
                         <div class="mockup-browser-toolbar">
@@ -32,12 +44,15 @@
 
                         <img src="assets/images/luckytap-main-large.png" alt="Luckytap" class="rounded">
                     </div>
-                    <p class="text-base text-gray-300 mt-2 mb-6 font-thin">App can be visited under the link <a href="https://www.luckytap.it/play" class="text-blue-500 inline"> https://luckytap.it/play </a></p>
+                    <p class="text-base text-gray-300 mt-2 mb-6 font-thin">App can be visited under the link <a
+                            href="https://www.luckytap.fun/play" class="text-blue-500 inline">
+                        https://luckytap.fun/play </a>,
+                        preparing for the main launch (project currently suspended).
+                        Thanks to the highly performant implementation - the app works with the speed of light despite
+                        currently running at the lowest specs settings.</p>
 
                     <div class="mockup-browser bg-base-300 border mt-12">
-                        <!-- Aspect Ratio Wrapper -->
                         <div style="position: relative; width: 100%; padding-bottom: 56.25%;">
-                            <!-- Iframe Embed -->
                             <iframe
                                     class="absolute top-0 left-0 w-full h-full"
                                     src="https://www.youtube-nocookie.com/embed/NV8AYo6-ggg"
@@ -48,46 +63,53 @@
 
                         </div>
                     </div>
-                    <p class="text-base text-gray-300 mt-2 mb-6 font-thin">   Quick & short showcase of the project v1.0.0 (does not include many features).</p>
-<!--                    https://youtu.be/NV8AYo6-ggg-->
+                    <p class="text-base text-gray-300 mt-2 mb-6 font-thin"> Quick & short showcase of the project v1.0.0
+                        (does not include many features).</p>
+                    <!--                    https://youtu.be/NV8AYo6-ggg-->
 
 
-
-
-                    <p class="text-3xl font-bold mb-4 mt-12">
+                    <p class="text-3xl font-bold mb-4 mt-12 text-gray-300">
                         My role in the project
                     </p>
                     <p class="text-base text-gray-300 mb-6  ">
                         I was the sole developer of the project, responsible for the entire architecture,
-                        design, codebase, testing and deployment of the backend services needed for the application to function.
+                        design, codebase, testing and deployment of the backend services needed for the application to
+                        function.
 
                     </p>
-                    <p class="text-3xl font-bold mb-4 mt-12">
+                    <p class="text-3xl font-bold mb-4 mt-12 text-gray-300">
                         Technology
                     </p>
 
-                        <div *ngFor="let category of skills">
-                            <div class="flex flex-wrap gap-2 mb-2">
-        <span *ngFor="let skill of category.items" class="flex items-center space-x-2 px-3 py-1 bg-gray-800 rounded-full text-sm">
+                    <div *ngFor="let category of skills">
+                        <div class="flex flex-wrap gap-2 mb-2">
+        <span *ngFor="let skill of category.items"
+              class="flex items-center space-x-2 px-3 py-1 bg-gray-800 rounded-full text-sm">
           <img *ngIf="logos[skill]" [src]="logos[skill]" alt="{{ skill }} logo" class="w-5 h-5">
-          <span>{{ skill }}</span>
+          <span class="text-gray-300">{{ skill }}</span>
         </span>
-                            </div>
+                        </div>
 
                     </div>
 
                     <p class="text-base text-gray-300 mb-6">
-                        The project prioritized efficiency and performance, aiming to handle tens of thousands of taps per second with minimal latency. To achieve this,
-                        I've also used TimescaleDB extension for PostgreSQL which ensures efficient data storage and processing for millions of user's taps.
+                        The project prioritized efficiency and performance, aiming to handle tens of thousands of taps
+                        per second with minimal latency. To achieve this,
+                        I've also used TimescaleDB extension for PostgreSQL which ensures efficient data storage and
+                        processing for millions of user's taps.
 
                     </p>
                 </div>
             </div>
         </section>
-
+        <a routerLink="/projects"
+           class="group flex justify-end items-center gap-2 px-4 py-2 text-white rounded-xl shadow-md transition duration-300 hover:bg-base hover:shadow-lg active:scale-95">
+            <span class="text-lg transition-transform group-hover:-translate-x-1">←</span>
+            <span>back to Projects</span>
+        </a>
 
 
     </div>
 
-    <app-footer></app-footer>
+
 </div>

@@ -1,40 +1,56 @@
+
 <div class="min-h-screen pt-24 px-4">
     <div class="max-w-6xl mx-auto">
         <section class="mb-16       mt-12">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h1 class="text-2xl md:text-5xl font-bold mb-4">
-                        👋
-                    </h1>
-                    <p class="text-lg text-gray-300 mb-6">
-                        I'm a young Junior Developer passionate about creating solid and secure software.
+                    <div class="flex flex-col gap-2">
+                        <img alt="avatar" loading="lazy" width="128" height="128" decoding="async" data-nimg="1"
+                             class="rounded-full block sm:hidden" src="assets/images/init-avatar.jpg"
+                             style="color: transparent;">
+
+                        <div class="text-3xl font-bold">Artur Bryja</div>
+                    </div>
+
+
+                    <p class="text-lg mb-6 text-gray-300 mt-4">
+                        <span class="text-3xl">👋</span> I'm a young Junior/<strong>Middle</strong> Developer passionate
+                        about creating solid and secure software.
 
                     </p>
-                    <p class="text-lg text-gray-300 mb-6">
-                        Currently living in Weilerswist, Germany and Nysa, Poland (depending on needs).
-                    </p>
-<!--                    <div class="flex gap-4">-->
-<!--                        <a href="https://github.com/arthures11"-->
-<!--                           target="_blank"-->
-<!--                           class="px-6 py-3 bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors">-->
-<!--                            View GitHub-->
-<!--                        </a>-->
-<!--                        <a routerLink="/projects"-->
-<!--                           class="px-6 py-3 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors">-->
-<!--                            Browse projects-->
-<!--                        </a>-->
-<!--                    </div>-->
+                    <div id="living-location">
+                        <p class="text-lg mb-6 text-gray-300"
+                        >
+                            Currently based in both Weilerswist, Germany and Nysa, Poland; fully open to relocating for
+                            the right opportunity.
+
+
+                        </p>
+                    </div>
+                    <!--                    <div class="flex gap-4">-->
+                    <!--                        <a href="https://github.com/arthures11"-->
+                    <!--                           target="_blank"-->
+                    <!--                           class="px-6 py-3 bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors">-->
+                    <!--                            View GitHub-->
+                    <!--                        </a>-->
+                    <!--                        <a routerLink="/projects"-->
+                    <!--                           class="px-6 py-3 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors">-->
+                    <!--                            Browse projects-->
+                    <!--                        </a>-->
+                    <!--                    </div>-->
                 </div>
                 <div class="ml-auto hidden md:block">
                     <div class="aspect-square rounded-full bg-gray-800 flex items-center justify-center text-9xl">
-                        👨‍💻
+                        <img alt="avatar" loading="lazy" width="128" height="128" decoding="async" data-nimg="1"
+                             class="rounded-full" src="assets/images/init-avatar.jpg" style="color: transparent;">
+
                     </div>
                 </div>
             </div>
         </section>
 
         <section class="mb-16">
-            <h2 class="text-2xl font-bold mb-8">One of my projects</h2>
+            <h2 class="text-2xl font-bold mb-8 text-gray-400">One of my projects</h2>
 
             <!-- Projects Grid -->
 
@@ -47,22 +63,40 @@
 
         </section>
 
-<!--        <section class="mb-16">-->
-<!--            <h2 class="text-2xl font-bold mb-8">Technologies I Work With</h2>-->
-<!--            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">-->
-<!--                <div *ngFor="let tech of technologies"-->
-<!--                     class="p-4 bg-gray-800 rounded-lg text-center hover:bg-gray-700 transition-colors">-->
-<!--                    {{tech}}-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </section>-->
+        <!--        <section class="mb-16">-->
+        <!--            <h2 class="text-2xl font-bold mb-8">Technologies I Work With</h2>-->
+        <!--            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">-->
+        <!--                <div *ngFor="let tech of technologies"-->
+        <!--                     class="p-4 bg-gray-800 rounded-lg text-center hover:bg-gray-700 transition-colors">-->
+        <!--                    {{tech}}-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </section>-->
+        <section id="photos" class="mb-16">
+            <div class="mb-1">
+                <h2 class="text-2xl font-bold inline text-gray-300">Photos</h2>
+                <p class="inline font-thin text-xs text-gray-300">
+                    (click to enlarge)
+                </p>
+
+            </div>
+            <p class="text-base text-gray-300 mb-16">
+                As I spend most of my time in front of the monitor, I don't have many recent photos. However, here are
+                some of them coming from a few events I've participated in.
+
+            </p>
+
+
+            <app-photos></app-photos>
+        </section>
+
         <section id="contact" class="mb-16">
-            <h2 class="text-2xl font-bold mb-8">Contact</h2>
+            <h2 class="text-2xl font-bold mb-8 text-gray-300">Contact</h2>
 
             <app-contact></app-contact>
         </section>
 
     </div>
 
-    <app-footer></app-footer>
+
 </div>

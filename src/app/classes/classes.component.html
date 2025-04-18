@@ -1,24 +1,38 @@
+
 <div class="min-h-screen pt-24 px-4">
     <div class="max-w-4xl mx-auto">
         <section class="mb-16       mt-12">
             <div class="md:grid-cols-2 items-center">
                 <div>
-                    <h4 class="text-xl md:text-5xl font-semibold mb-4">
+                    <h4 class="text-xl md:text-5xl font-semibold mb-4 text-gray-300">
                         Classes
                     </h4>
                     <p class="text-base text-gray-300 mb-6">
                         A web-based educational testing system developed mainly with Laravel,
-                        designed to improve teacher-student interaction through automated test administration and result tracking.
-                        This platform streamlines the assessment process in educational institutions by providing teachers with comprehensive
+                        designed to improve teacher-student interaction through automated test administration and result
+                        tracking.
+                        This platform streamlines the assessment process in educational institutions by providing
+                        teachers with comprehensive
                         tools for managing students, creating tests, and analyzing results. Key features include:
                     </p>
 
-                    <ul class="mt-4 space-y-2">
-                        <li *ngFor="let feature of features" class=" items-start gap-2">
-                            <span class="text-gray-300 in"> • </span>
-                            <span *ngIf="feature.title!=''" class="text-gray-300 text-base font-bold inline">{{ feature.title }}</span><span class="text-gray-300 text-base inline">{{ feature.description }}</span>
-                        </li>
-                    </ul>
+                    <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
+
+                        <div *ngFor="let feature of features"
+                             class="flex flex-col justify-center p-4 rounded-2xl shadow bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-[1.02]">
+
+                            <h3 *ngIf="feature.title"
+                                class="text-xl text-center font-semibold mb-2 text-gray-900 dark:text-white">
+                                {{ feature.title }}
+                            </h3>
+
+                            <p class="text-center text-gray-700 dark:text-gray-300">
+                                {{ feature.description }}
+                            </p>
+
+                        </div>
+
+                    </div>
 
                     <div class="mockup-browser bg-base-300 border mt-12">
                         <div class="mockup-browser-toolbar">
@@ -26,7 +40,8 @@
 
                         <img src="assets/images/classes-questions.png" alt="Luckytap" class="rounded">
                     </div>
-                    <p class="text-base text-gray-300 mt-2 mb-6 font-thin">Showcase of the questions database CRUD table.</p>
+                    <p class="text-base text-gray-300 mt-2 mb-6 font-thin">Showcase of the questions database CRUD
+                        table.</p>
 
                     <div class="mockup-browser bg-base-300 border mt-12">
                         <div class="mockup-browser-toolbar">
@@ -34,7 +49,8 @@
 
                         <img src="assets/images/classes-newtest.png" alt="Luckytap" class="rounded">
                     </div>
-                    <p class="text-base text-gray-300 mt-2 mb-6 font-thin">Showcase of the menu that allows to create a new test with chosen questions.</p>
+                    <p class="text-base text-gray-300 mt-2 mb-6 font-thin">Showcase of the menu that allows to create a
+                        new test with chosen questions.</p>
 
 
                     <p class="text-base text-gray-300 mb-6  ">
@@ -44,21 +60,22 @@
 
                     </p>
 
-                    <p class="text-3xl font-bold mb-4 mt-12">
+                    <p class="text-3xl font-bold mb-4 mt-12 text-gray-300">
                         My role in the project
                     </p>
                     <p class="text-base text-gray-300 mb-6  ">
                         Design and codebase was fully written by myself.
                     </p>
-                    <p class="text-3xl font-bold mb-4 mt-12">
+                    <p class="text-3xl font-bold mb-4 mt-12 text-gray-300">
                         Technology
                     </p>
 
                     <div *ngFor="let category of skills">
                         <div class="flex flex-wrap gap-2 mb-2">
-        <span *ngFor="let skill of category.items" class="flex items-center space-x-2 px-3 py-1 bg-gray-800 rounded-full text-sm">
+        <span *ngFor="let skill of category.items"
+              class="flex items-center space-x-2 px-3 py-1 bg-gray-800 rounded-full text-sm">
           <img *ngIf="logos[skill]" [src]="logos[skill]" alt="{{ skill }} logo" class="w-5 h-5">
-          <span>{{ skill }}</span>
+          <span class="text-gray-300">{{ skill }}</span>
         </span>
                         </div>
 
@@ -72,9 +89,13 @@
             </div>
         </section>
 
-
+        <a routerLink="/projects"
+           class="group flex justify-end items-center gap-2 px-4 py-2 text-white rounded-xl shadow-md transition duration-300 hover:bg-base hover:shadow-lg active:scale-95">
+            <span class="text-lg transition-transform group-hover:-translate-x-1">←</span>
+            <span>back to Projects</span>
+        </a>
 
     </div>
 
-    <app-footer></app-footer>
+
 </div>

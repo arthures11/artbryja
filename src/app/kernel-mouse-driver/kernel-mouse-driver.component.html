@@ -1,0 +1,68 @@
+
+<div class="min-h-screen pt-24 px-4" xmlns="http://www.w3.org/1999/html">
+    <div class="max-w-4xl mx-auto">
+        <section class="mb-16       mt-12">
+
+            <div class="flex flex-col md:flex-row items-center md:items-start mb-6 md:mb-8">
+                <div>
+                    <h4 class="text-xl md:text-5xl font-semibold mb-4 text-gray-300">
+                        Kernel-Level Mouse mini-driver
+                    </h4>
+                </div>
+            </div>
+
+            <div class="prose prose-invert prose-lg max-w-none text-gray-400">
+                <p class="text-base text-gray-300 mb-6">
+                    The driver doesn't reimplement the entire mouse processing logic. Instead, it finds and
+                    calls the existing kernel routine (MouseClassServiceCallback) that the standard
+                    Windows mouse driver uses to process input, feeding it custom-made input data. This is
+                    precisely how it bypasses higher-level APIs – it talks directly to the lower-level component
+                    responsible for handling raw mouse data.
+                </p>
+
+
+                <div class="mt-8 p-4 bg-gray-700 rounded-md border border-yellow-600">
+                    <p class="text-yellow-300"><strong class="font-semibold">Note:</strong> This driver is
+                        presented as a technical demonstration of kernel-level programming and input
+                        manipulation techniques. Primarily for educational purposes.</p>
+                </div>
+            </div>
+
+
+            <p class=" text-gray-300 mb-6 mt-5">
+                Source code can be found on GitHub using
+                <a href="https://github.com/arthures11/kernel-mouse-mini-driver"
+                   class="underline inline text-blue-600"> this link.</a> (inspired by <a
+                    href=" https://github.com/ekknod"
+                    class="underline inline text-blue-600"> ekknod</a>).
+            </p>
+
+
+            <p class="text-3xl font-bold mb-4 mt-12 text-gray-300">
+                Technology
+            </p>
+
+            <div *ngFor="let category of skills">
+                <div class="flex flex-wrap gap-2 mb-2">
+                    <span *ngFor="let skill of category.items"
+                          class="flex items-center space-x-2 px-3 py-1 bg-gray-800 rounded-full text-sm">
+                      <img *ngIf="logos[skill]" [src]="logos[skill]" alt="{{ skill }} logo" class="w-5 h-5">
+                      <span class="text-gray-300">{{ skill }}</span>
+                    </span>
+                </div>
+
+            </div>
+
+        </section>
+        <a routerLink="/projects"
+           class="group flex justify-end items-center gap-2 px-4 py-2 text-white rounded-xl shadow-md transition duration-300 hover:bg-base hover:shadow-lg active:scale-95">
+            <span class="text-lg transition-transform group-hover:-translate-x-1">←</span>
+            <span>back to Projects</span>
+        </a>
+
+
+    </div>
+
+
+
+</div>

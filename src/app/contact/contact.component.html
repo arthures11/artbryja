@@ -1,56 +1,103 @@
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
     <div class="card border border-neutral bg-base-200 p-6">
         <div class="flex flex-col items-center">
             <div class="text-4xl mb-2">
-                <svg height="33px" width="33px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                <svg height="33px" width="33px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink"
                      viewBox="0 0 495 495" xml:space="preserve">
 <g>
 	<polygon style="fill:#46F8FF;" points="286.2,332.135 286.38,332.135 465,495 465,169.46 	"/>
-    <polygon style="fill:#9BFBFF;" points="465,169.46 347.037,169.46 247.5,278.528 147.963,169.46 30,169.46 247.5,367.23 	"/>
-    <polygon style="fill:#00E7F0;" points="286.2,332.135 247.5,367.23 208.71,332.135 30,495 465,495 286.38,332.135 	"/>
+    <polygon style="fill:#9BFBFF;"
+             points="465,169.46 347.037,169.46 247.5,278.528 147.963,169.46 30,169.46 247.5,367.23 	"/>
+    <polygon style="fill:#00E7F0;"
+             points="286.2,332.135 247.5,367.23 208.71,332.135 30,495 465,495 286.38,332.135 	"/>
     <polygon style="fill:#46F8FF;" points="30,169.46 30,495 208.71,332.135 	"/>
-    <polygon style="fill:#2488FF;" points="247.5,0 163.07,0 163.07,114.43 97.741,114.43 147.963,169.46 247.5,278.528 	"/>
-    <polygon style="fill:#005ECE;" points="347.037,169.46 397.259,114.43 331.93,114.43 331.93,0 247.5,0 247.5,278.528 	"/>
+    <polygon style="fill:#2488FF;"
+             points="247.5,0 163.07,0 163.07,114.43 97.741,114.43 147.963,169.46 247.5,278.528 	"/>
+    <polygon style="fill:#005ECE;"
+             points="347.037,169.46 397.259,114.43 331.93,114.43 331.93,0 247.5,0 247.5,278.528 	"/>
 </g>
 </svg>
             </div>
             <h3 class="font-bold text-lg">E-mail</h3>
             <p class="text-center text-sm mb-4">Feel free to reach out via email.</p>
-            <div class="flex items-center justify-between gap-2">
+            <div class="relative w-full max-w-xs">
                 <input
                         type="text"
                         value="artbryja@gmail.com"
-                        class="input input-bordered text-center w-full max-w-xs"
+                        class="input input-bordered text-center w-full select-all cursor-pointer"
+                        (click)="copyToClipboard('artbryja@gmail.com')"
                         readonly
                 />
+                <div
+                        class="absolute -top-8 left-1/2 -translate-x-1/2 bg-success text-white text-sm px-3 py-1 rounded shadow-md transition-opacity duration-500 ease-in-out"
+                        [class.opacity-0]="!copiedMail"
+                        [class.opacity-100]="copiedMail"
+                >
+                    Copied!
+                </div>
             </div>
+
+        </div>
+    </div>
+
+    <div class="card border border-neutral bg-base-200 p-6">
+        <div class="flex flex-col items-center">
+            <div class="text-4xl mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" height="33" viewBox="0 0 72 72" width="33">
+                    <g fill="none" fill-rule="evenodd">
+                        <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z"
+                              fill="#007EBB"/>
+                        <path d="M62,62 L51.315625,62 L51.315625,43.8021149 C51.315625,38.8127542 49.4197917,36.0245323 45.4707031,36.0245323 C41.1746094,36.0245323 38.9300781,38.9261103 38.9300781,43.8021149 L38.9300781,62 L28.6333333,62 L28.6333333,27.3333333 L38.9300781,27.3333333 L38.9300781,32.0029283 C38.9300781,32.0029283 42.0260417,26.2742151 49.3825521,26.2742151 C56.7356771,26.2742151 62,30.7644705 62,40.051212 L62,62 Z M16.349349,22.7940133 C12.8420573,22.7940133 10,19.9296567 10,16.3970067 C10,12.8643566 12.8420573,10 16.349349,10 C19.8566406,10 22.6970052,12.8643566 22.6970052,16.3970067 C22.6970052,19.9296567 19.8566406,22.7940133 16.349349,22.7940133 Z M11.0325521,62 L21.769401,62 L21.769401,27.3333333 L11.0325521,27.3333333 L11.0325521,62 Z"
+                              fill="#FFF"/>
+                    </g>
+
+                </svg>
+            </div>
+            <h3 class="font-bold text-lg">LinkedIn</h3>
+            <p class="text-center text-sm mb-4">You can check out my LinkedIn profile.</p>
+            <a href="https://www.linkedin.com/in/artur-bryja-030258341/" class="text-blue-500 hover:underline">/in/artur-bryja-030258341</a>
+
         </div>
     </div>
 
     <div class="card border border-neutral bg-base-200 p-6 flex flex-col items-center">
         <div class="text-4xl mb-2">
-            <svg width="33px" height="33px" viewBox="0 -28.5 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
+            <svg width="33px" height="33px" viewBox="0 -28.5 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
                 <g>
-                    <path d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z" fill="#5865F2" fill-rule="nonzero">
+                    <path d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z"
+                          fill="#5865F2" fill-rule="nonzero">
 
                     </path>
                 </g>
             </svg>
         </div>
         <h3 class="font-bold text-lg">Discord</h3>
-        <p class="text-center text-sm mb-4">Feel free to reach out via discord as well.</p>
-        <div class="flex items-center justify-between gap-2">
+        <p class="text-center text-sm mb-4">You can add me on Discord.</p>
+        <div class="relative w-full max-w-xs">
             <input
                     type="text"
                     value="arthvro"
-                    class="input input-bordered text-center w-full max-w-xs"
+                    class="input input-bordered text-center w-full select-all cursor-pointer"
+                    (click)="copyToClipboard('arthvro')"
                     readonly
             />
+            <div
+                    class="absolute -top-8 left-1/2 -translate-x-1/2 bg-success text-white text-sm px-3 py-1 rounded shadow-md transition-opacity duration-500 ease-in-out"
+                    [class.opacity-0]="!copiedDiscord"
+                    [class.opacity-100]="copiedDiscord"
+            >
+                Copied!
+            </div>
         </div>
+
     </div>
+
     <div class="card border border-neutral bg-base-200 p-6 flex flex-col items-center">
         <div class="text-4xl mb-2">
-            <svg height="33px" width="33px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            <svg height="33px" width="33px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink"
                  viewBox="0 0 291.32 291.32" xml:space="preserve">
 <g>
 	<path style="fill:#2B414D;" d="M145.66,0C65.219,0,0,65.219,0,145.66c0,80.45,65.219,145.66,145.66,145.66
@@ -66,7 +113,7 @@
 </g>
 </svg>
         </div>
-        <h3 class="font-bold text-lg">GitHub</h3>
+        <h3 class="font-bold text-lg">Public GitHub</h3>
         <p class="text-center text-sm mb-4">Some public source code lurking can be done here.</p>
         <a href="https://github.com/arthures11" class="text-blue-500 hover:underline">/arthures11</a>
     </div>
