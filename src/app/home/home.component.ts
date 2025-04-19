@@ -3,17 +3,12 @@ import {ScrollStateService} from '../scroll-state.service';
 import {After} from "node:v8";
 import {Router} from "@angular/router";
 import { CommonModule } from '@angular/common';
-import { HeroComponent } from './hero/hero.component';
 
 @Component({
     selector: 'app-home',
-    standalone: true,
-    imports: [CommonModule, HeroComponent],
-    template: `
-        <app-hero></app-hero>
-        <!-- Add more sections here -->
-    `,
-    styles: []
+    standalone: false,
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements AfterViewInit, OnDestroy{
 
