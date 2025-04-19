@@ -11,8 +11,6 @@ import {ScrollStateService} from "./scroll-state.service";
     styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-    isLoading = false;
-
     constructor(private router: Router, private titleService: Title, private scrollState: ScrollStateService) {
     }
 
@@ -44,16 +42,6 @@ export class AppComponent implements OnInit {
                     this.titleService.setTitle(data['title']);
                 }
             });
-
-        // Handle route changes
-        this.router.events.pipe(
-            filter(event => event instanceof NavigationEnd)
-        ).subscribe(() => {
-            this.isLoading = true;
-            setTimeout(() => {
-                this.isLoading = false;
-            }, 300);
-        });
     }
 
     onRouteChange() {
