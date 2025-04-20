@@ -29,12 +29,14 @@
                         (click)="copyToClipboard('artbryja@gmail.com')"
                         readonly
                 />
-                <div
-                        class="absolute -top-8 left-1/2 -translate-x-1/2 bg-success text-white text-sm px-3 py-1 rounded shadow-md transition-opacity duration-500 ease-in-out"
-                        [class.opacity-0]="!copiedMail"
-                        [class.opacity-100]="copiedMail"
-                >
-                    Copied!
+                <div *ngIf="copiedMail">
+                    <div
+                            class="absolute -top-8 left-1/2 -translate-x-1/2 bg-success text-white text-sm px-3 py-1 rounded shadow-md transition-opacity duration-500 ease-in-out"
+                            [class.opacity-0]="!copiedMail"
+                            [class.opacity-100]="copiedMail"
+                    >
+                        Copied!
+                    </div>
                 </div>
             </div>
 
@@ -83,12 +85,14 @@
                     (click)="copyToClipboard('arthvro')"
                     readonly
             />
-            <div
-                    class="absolute -top-8 left-1/2 -translate-x-1/2 bg-success text-white text-sm px-3 py-1 rounded shadow-md transition-opacity duration-500 ease-in-out"
-                    [class.opacity-0]="!copiedDiscord"
-                    [class.opacity-100]="copiedDiscord"
-            >
-                Copied!
+            <div *ngIf="copiedDiscord">
+                <div
+                        class="absolute -top-8 left-1/2 -translate-x-1/2 bg-success text-white text-sm px-3 py-1 rounded shadow-md transition-opacity duration-500 ease-in-out"
+                        [class.opacity-0]="!copiedDiscord"
+                        [class.opacity-100]="copiedDiscord"
+                >
+                    Copied!
+                </div>
             </div>
         </div>
 
