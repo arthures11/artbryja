@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 
 @Component({
     selector: 'app-contact',
@@ -6,10 +6,16 @@ import {Component} from '@angular/core';
     templateUrl: './contact.component.html',
     styleUrl: './contact.component.css'
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit{
 
     copiedDiscord = false
     copiedMail = false
+
+    ngOnInit() {
+
+        this.copiedDiscord = false
+        this.copiedMail = false
+    }
 
     async copyToClipboard(value: string) {
         try {
