@@ -90,7 +90,7 @@ export class CvComponent {
         },
         {
             name: 'My workspace',
-            items: ['JetBrains IDEs', 'VS Code', 'VS 2019/2022', 'macOS', 'Windows']
+            items: ['JetBrains IDEs', 'VS Code', 'VS 2019/2022', 'Cursor', 'macOS', 'Windows']
         },
     ];
 
@@ -170,6 +170,7 @@ export class CvComponent {
         'VS Code': 'assets/images/vscode-ico.svg',
         'VS 2019/2022': 'assets/images/vs-ico.svg',
         'jQuery': 'assets/images/jquery-ico.svg',
+        'Cursor': 'assets/images/cursor-ico.svg',
     };
 
 
