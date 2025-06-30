@@ -23,7 +23,7 @@ export class ProjectsComponent implements OnInit {
             title: 'PGD-Copilot',
             role: 'Junior/Mid Software Engineer',
             type: 'Commercial',
-            year: '2025',
+            year: '2024-2025',
             description: 'Internal AI-powered chat application.',
             technologies: [
                 {name: 'FastAPI', icon: 'assets/images/fastapi-ico.svg'},

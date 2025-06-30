@@ -44,6 +44,104 @@ export class CvComponent {
         }
     ];
 
+    // kbwExperience = [
+    //
+    //     {
+    //         period: '',
+    //         company: 'KBW',
+    //         position: 'Information Technology Support Specialist',
+    //         description: 'Technology & Hardware On-Site Support Contract',
+    //         companyUrls: {},
+    //         achievements: [
+    //             'Provided technical support for the Polish National Electoral Commission during national/local elections (2019, 2020, 2023, 2024, 2025)',
+    //             'Operated election software, assisted with secure data transmission and system setup',
+    //             'Troubleshooted any hardware and software issues under time pressure to ensure smooth and accurate reporting',
+    //             'Ensured compliance with data integrity and official protocols in high-responsibility settings'
+    //         ]
+    //     },
+    //     {
+    //         period: 'October 2019',
+    //         company: '',
+    //         position: '',
+    //         description: 'Parliamentary Election',
+    //         companyUrls: {},
+    //         achievements: [
+    //
+    //         ]
+    //     },
+    //     {
+    //         period: 'June 2020',
+    //         company: '',
+    //         position: '',
+    //         description: 'Presidential Election – First Round',
+    //         companyUrls: {},
+    //         achievements: [
+    //
+    //         ]
+    //     },
+    //     {
+    //         period: 'July 2020',
+    //         company: '',
+    //         position: '',
+    //         description: 'Presidential Election – Runoff',
+    //         companyUrls: {},
+    //         achievements: [
+    //
+    //         ]
+    //     },
+    //     {
+    //         period: 'October 2023',
+    //         company: '',
+    //         position: '',
+    //         description: 'Parliamentary Election',
+    //         companyUrls: {},
+    //         achievements: [
+    //
+    //         ]
+    //     },
+    //     {
+    //         period: 'April 2024',
+    //         company: '',
+    //         position: '',
+    //         description: 'Local Government Elections',
+    //         companyUrls: {},
+    //         achievements: [
+    //
+    //         ]
+    //     },
+    //     {
+    //         period: 'June 2024',
+    //         company: '',
+    //         position: '',
+    //         description: 'European Parliament Election',
+    //         companyUrls: {},
+    //         achievements: [
+    //
+    //         ]
+    //     },
+    //     {
+    //         period: 'May 2025',
+    //         company: '',
+    //         position: '',
+    //         description: 'Presidential Election – First Round',
+    //         companyUrls: {},
+    //         achievements: [
+    //
+    //         ]
+    //     },
+    //     {
+    //         period: 'June 2025',
+    //         company: '',
+    //         position: '',
+    //         description: 'Presidential Election – Runoff',
+    //         companyUrls: {},
+    //         achievements: [
+    //
+    //         ]
+    //     }
+    // ];
+
+
     education = [
         {
             period: '2020 - 2024 (recent graduation)',
@@ -208,7 +306,7 @@ export class CvComponent {
     other = [
         {
             period: '2017 - 2025',
-            name: 'Challenger rank placement in League of Legends',
+            name: 'Challenger rank placement in League of Legends (top 0.01%) - demonstrating strategic thinking, resilience, and competitive consistency',
             link: 'https://www.redbull.com/int-en/league-of-legends-ranked-system-explained'
         },
         {
