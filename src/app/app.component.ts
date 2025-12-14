@@ -4,6 +4,11 @@ import {Title} from '@angular/platform-browser';
 import {filter, map, mergeMap} from 'rxjs/operators';
 import {ScrollStateService} from "./scroll-state.service";
 
+
+declare global {
+  interface Window { dataLayer?: any[] }
+}
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -42,6 +47,19 @@ export class AppComponent implements OnInit {
                     this.titleService.setTitle(data['title']);
                 }
             });
+
+      // GA/GTM pageview push on SPA navigation
+      this.router.events
+        .pipe(filter(event => event instanceof NavigationEnd))
+        .subscribe((e: NavigationEnd) => {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: 'page_view',
+            page_path: e.urlAfterRedirects,
+            page_title: document.title,
+            page_location: location.href
+          });
+        });
     }
 
     onRouteChange() {

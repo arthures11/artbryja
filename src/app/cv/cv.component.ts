@@ -14,32 +14,37 @@ export class CvComponent {
             period: 'December 2023 - February 2024',
             company: 'Ponta IT',
             position: 'Intern/Junior Software Engineer',
-            description: 'Back-end and front-end development',
+            description: 'Full-stack development with focus on scalable web applications',
+            technologies: ['Spring', 'PostgreSQL', 'Java', 'Git', 'Trello', 'CircleCI'],
             companyUrls: {},
             achievements: [
-                'Designing, building, and scaling web applications using mainly Spring and PostgreSQL',
+                'Built scalable web applications using Spring Boot and PostgreSQL',
+                'Participated in code reviews and agile development practices',
             ]
         },
         {
             period: 'July 2023 - September 2023',
             company: '',
             position: '',
-            description: 'Back-end, front-end development and RubyMine plugin development',
+            description: 'Full-stack development and IDE plugin creation',
+            technologies: ['Ruby', 'JavaScript', 'Git', 'Trello'],
             companyUrls: {},
             achievements: [
-                'Developed a RubyMine plugin with its own directory structure tree',
+                'Developed RubyMine plugin with custom directory structure for improved developer workflow',
+                'Built and maintained full-stack features using Ruby and JavaScript',
             ]
         },
         {
             period: 'June 2022 - August 2022',
             company: '',
             position: '',
-            description: 'Back-end development',
+            description: 'Back-end development and API implementation',
+            technologies: ['Spring', 'TypeScript', 'JavaScript', 'Bootstrap', 'Git', 'Trello', 'CircleCI'],
             companyUrls: {},
             achievements: [
-                'Developed a REST API using Spring Boot and Hibernate / PostgreSQL',
-                'Collaborated with the team using Git, Trello and CircleCI',
-                'Written multiple articles on Web Development thematics'
+                'Implemented RESTful APIs and database schemas for web applications',
+                'Collaborated in team environment using Git, Trello, and CircleCI',
+                'Authored technical articles on modern web development practices'
             ]
         }
     ];
@@ -166,15 +171,15 @@ export class CvComponent {
     skills = [
         {
             name: 'Languages',
-            items: ['Java', 'Go', 'TypeScript', 'Python', 'JavaScript', 'PHP', 'C#', "C++", 'AutoIt', 'AutoHotkey']
+            items: ['Java', 'Go', 'TypeScript', 'Python', 'C++', 'C#', 'JavaScript', "Visual Basic", 'Julia', 'Ruby',"PHP", 'AutoIt', 'AutoHotkey']
         },
         {
             name: 'Backend',
-            items: ['Spring', 'Hibernate', 'Gin', 'GORM', 'FastAPI', 'SQL Alchemy', 'Laravel', '.NET', 'Entity Framework']
+            items: ['Spring', 'Hibernate', 'Gin', 'GORM', 'FastAPI', 'SQL Alchemy', 'Laravel', '.NET', 'Entity Framework', 'WCF']
         },
         {
             name: 'Frontend',
-            items: ['Angular', 'Tailwind CSS', 'Bootstrap', "Flowbite", 'DaisyUI', 'jQuery', 'HTML', 'CSS',]
+            items: ['Angular', 'React', 'Tailwind CSS', 'Bootstrap', "Flowbite", 'DaisyUI', 'jQuery', 'HTML', 'CSS',]
         },
 
         {
@@ -184,12 +189,20 @@ export class CvComponent {
 
         {
             name: 'Tools & Methods & Computing',
-            items: ['Git', 'CircleCI', 'bash', 'Trello', 'Jira', 'Agile', 'Scrum', 'Docker', 'Fly.io', 'GraalVM']
+            items: ['Azure DevOps','Jira', 'Trello', 'Fly.io','GitHub Actions', 'CircleCI', 'Git', 'Agile', 'Scrum', 'Docker', 'bash', 'GraalVM']
         },
         {
-            name: 'My workspace',
-            items: ['JetBrains IDEs', 'VS Code', 'VS 2019/2022', 'Cursor', 'macOS', 'Windows']
+          name: 'My workspace',
+          items: ['JetBrains IDEs', 'VS Code', 'VS 2019/2022', 'Cursor', 'macOS', 'Windows', 'KiloCode', 'GitHub Copilot', 'Roo Code', 'AI Agents', 'Claude', 'GPT', 'Gemini']
         },
+      {
+        name: 'Security',
+        items: ['Burp Suite', 'Wireshark', 'sqlmap', 'Social Engineering', 'Shodan','Nmap']
+      },
+      {
+        name: 'Reverse Engineering',
+        items: ['IDA Pro', 'Ghidra', 'x64dbg', 'OllyDbg', 'Assembly','Themida', 'Cheat Engine', 'hexedit', 'ReClass']
+      },
     ];
 
     certs = [
@@ -223,6 +236,7 @@ export class CvComponent {
     // Logos mapped to technology names
     logos: { [key: string]: string } = {
         'Java': 'assets/images/java-ico.svg',
+        'GitHub Actions': 'assets/images/github-ico.svg',
         'Go': 'assets/images/go-ico.svg',
         'TypeScript': 'assets/images/ts-ico.svg',
         'Python': 'assets/images/python-ico.svg',
@@ -230,10 +244,12 @@ export class CvComponent {
         'PHP': 'assets/images/php-ico.svg',
         'C#': 'assets/images/cs-ico.svg',
         'C++': 'assets/images/cpp-ico.svg',
+        'Visual Basic': 'assets/images/vb-ico.svg',
         'AutoIt': 'assets/images/autoit-ico.svg',
         'AutoHotkey': 'assets/images/ahk-ico.svg',
         'Spring': 'assets/images/spring-ico.svg',
         'Hibernate': 'assets/images/hibernate-ico.svg',
+       'Assembly': 'assets/images/assembly-ico.svg',
         'Gin': 'assets/images/gin-ico.svg',
         'GORM': 'assets/images/gorm-ico.svg',
         'FastAPI': 'assets/images/fastapi-ico.svg',
@@ -259,6 +275,7 @@ export class CvComponent {
         'Jira': 'assets/images/jira-ico.svg',
         'Agile': 'assets/images/agile-ico.svg',
         'Scrum': 'assets/images/agile-ico.svg',
+      'React': 'assets/images/react-ico.svg',
         'Docker': 'assets/images/docker-ico.svg',
         'Fly.io': 'assets/images/flyio-ico.svg',
         'GraalVM': 'assets/images/graal-ico.svg',
@@ -269,6 +286,31 @@ export class CvComponent {
         'VS 2019/2022': 'assets/images/vs-ico.svg',
         'jQuery': 'assets/images/jquery-ico.svg',
         'Cursor': 'assets/images/cursor-ico.svg',
+        'Burp Suite': 'assets/images/burp-ico.svg',
+        'Wireshark': 'assets/images/wireshark-ico.svg',
+        'sqlmap': 'assets/images/sqlmap-ico.svg',
+      'Social Engineering': 'assets/images/se-ico.png',
+      'Shodan': 'assets/images/shodan-ico.svg',
+      'IDA Pro': 'assets/images/ida-ico.jpeg',
+      'Ghidra': 'assets/images/ghidra-ico.svg',
+      'x64dbg': 'assets/images/x64dbg-ico.png',
+      'Cheat Engine': 'assets/images/ce-ico.svg',
+      'Themida': 'assets/images/Themida-ico.svg',
+      'hexedit': 'assets/images/hexedit-ico.svg',
+      'ReClass': 'assets/images/reclass-ico.png',
+      'Nmap': 'assets/images/nmap-ico.svg',
+      'OllyDbg': 'assets/images/ollydbg-ico.svg',
+      'Azure DevOps': 'assets/images/azure-devops-ico.svg',
+      'Julia': 'assets/images/julia-ico.svg',
+      'Ruby': 'assets/images/ruby-ico.svg',
+      'WCF': 'assets/images/wcf-ico.svg',
+      'GPT': 'assets/images/gpt-ico.png',
+      'Claude': 'assets/images/claude-ico.svg.png',
+      'Gemini': 'assets/images/gemini-ico.svg.png',
+      'KiloCode': 'assets/images/kilocode-ico.png',
+      'GitHub Copilot': 'assets/images/github-ico.svg',
+      'Roo Code': 'assets/images/roocode-ico.png',
+      'AI Agents': 'assets/images/ai-agents-ico.png',
     };
 
 
@@ -279,7 +321,7 @@ export class CvComponent {
         },
         {
             period: 'German',
-            name: 'Basics (in progress)'
+            name: 'Intermediate'
         },
         {
             period: 'Polish',

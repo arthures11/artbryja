@@ -20,7 +20,7 @@ export class ProjectsComponent implements OnInit {
 
     featuredProjects = [
         {
-            title: 'PGD-Copilot',
+            title: 'Copilot',
             role: 'Junior/Mid Software Engineer',
             type: 'Commercial',
             year: '2024-2025',
@@ -111,7 +111,7 @@ export class ProjectsComponent implements OnInit {
             link: '/music-store'
         },
         {
-            title: 'WebDevExpert',
+            title: 'WebDevDemo',
             role: 'Fullstack Developer',
             type: 'Educational',
             year: '2025',
