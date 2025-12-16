@@ -348,7 +348,7 @@ export class CvComponent {
     other = [
         {
             period: '2017 - 2025',
-            name: 'Challenger rank placement in League of Legends (top 0.01%) - demonstrating strategic thinking, resilience, and competitive consistency',
+            name: 'Challenger rank placement in League of Legends (top 0.01%) - demonstrating exceptional strategic thinking, pattern recognition, and adaptive problem-solving under pressure. Developed innovative strategies that garnered unusual community recognition including examples like:',
             link: 'https://www.redbull.com/int-en/league-of-legends-ranked-system-explained'
         },
         {
