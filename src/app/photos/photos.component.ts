@@ -24,7 +24,6 @@ export class PhotosComponent implements OnInit{
   photos = [
     { url: 'assets/images/photo-3.jpg', description: '' },
     { url: 'assets/images/photo-1.JPG', description: 'During the polonaise dance.' },
-    { url: 'assets/images/photo-2.jpg', description: 'With my sister at her party.' },
   ];
 
   selectedPhoto: { url: string; description: string } | null = null;

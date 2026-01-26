@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
     selector: 'app-pgd-copilot',
@@ -7,7 +7,14 @@ import {Component} from '@angular/core';
     templateUrl: './pgd-copilot.component.html',
     styleUrl: './pgd-copilot.component.css'
 })
-export class PgdCopilotComponent {
+export class PgdCopilotComponent implements OnInit {
+    showHiddenContent: boolean = false;
+
+    ngOnInit() {
+        if (window.location.hash === '#seemoresmileyemoji') {
+            this.showHiddenContent = true;
+        }
+    }
     features = [
         {
             title: 'AI-Driven Assistance',
@@ -123,29 +130,29 @@ export class PgdCopilotComponent {
         const toast = document.createElement('div');
 
         toast.className = `
-    mobile-notification 
-    fixed 
-    z-[1000] 
-    inset-0 
-    flex 
-    items-center 
-    justify-center 
+    mobile-notification
+    fixed
+    z-[1000]
+    inset-0
+    flex
+    items-center
+    justify-center
     pointer-events-none
   `;
 
         const toastContent = document.createElement('div');
         toastContent.className = `
-    bg-orange-500 
-    text-white 
-    px-6 
-    py-4 
-    rounded-lg 
-    shadow-2xl 
-    text-center 
-    w-[calc(100%-40px)] 
-    max-w-md 
-    mx-auto 
-    animate-bounce 
+    bg-orange-500
+    text-white
+    px-6
+    py-4
+    rounded-lg
+    shadow-2xl
+    text-center
+    w-[calc(100%-40px)]
+    max-w-md
+    mx-auto
+    animate-bounce
     font-bold
   `;
 
