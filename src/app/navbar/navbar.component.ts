@@ -30,6 +30,7 @@ export class NavbarComponent implements OnInit {
     { label: 'CV', path: '/cv' },
     { label: 'Projects', path: '/projects' },
     { label: 'Contact', path: '/#contact'},
+    { label: 'AMA', path: '/ama' },
   ];
   showAvatar$
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private renderer: Renderer2, private scrollState: ScrollStateService, @Inject(DOCUMENT) private document: Document) {

@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule, provideClientHydration, withEventReplay} from '@angular/platform-browser';
+import {HttpClientModule} from '@angular/common/http';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -19,10 +20,14 @@ import {CasinoComponent} from './casino/casino.component';
 import {ClassesComponent} from './classes/classes.component';
 import {PhotosComponent} from './photos/photos.component';
 import {PgdCopilotComponent} from './pgd-copilot/pgd-copilot.component';
-import {NgOptimizedImage} from "@angular/common";
+import {NgOptimizedImage, CommonModule} from "@angular/common";
 import { MusicStoreComponent } from './music-store/music-store.component';
 import { ReactTechMasteryComponent } from './react-tech-mastery/react-tech-mastery.component';
 import { KernelMouseDriverComponent } from './kernel-mouse-driver/kernel-mouse-driver.component';
+import { AmaComponent } from './ama/ama.component';
+import { AmaService } from './ama/ama.service';
+import { AmaAdminComponent } from './ama-admin/ama-admin.component';
+import { AmaAdminService } from './ama-admin/ama-admin.service';
 
 
 const routerOptions: ExtraOptions = {
@@ -52,11 +57,12 @@ const routerOptions: ExtraOptions = {
         MusicStoreComponent,
         ReactTechMasteryComponent,
         KernelMouseDriverComponent,
-
-
+        AmaComponent,
+        AmaAdminComponent,
     ],
     imports: [
         BrowserModule,
+        HttpClientModule,
         RouterModule.forRoot([
             {path: '', component: HomeComponent, data: {title: 'Artur Bryja'}},
             {path: 'cv', component: CvComponent, data: {title: 'CV | Artur Bryja'}},
@@ -70,13 +76,17 @@ const routerOptions: ExtraOptions = {
             {path: 'music-store', component: MusicStoreComponent, data: {title: 'Music-Store | Artur Bryja'}},
             {path: 'react-mastery-tech', component: ReactTechMasteryComponent, data: {title: 'WebDevExpert | Artur Bryja'}},
             {path: 'kernel-mouse-driver', component: KernelMouseDriverComponent, data: {title: 'Kernel Mouse Driver | Artur Bryja'}},
-
+            {path: 'ama', component: AmaComponent, data: {title: 'AMA | Artur Bryja'}},
+            {path: 'admin', component: AmaAdminComponent, data: {title: 'Admin | Artur Bryja'}},
         ], routerOptions),
         FormsModule,
         NgOptimizedImage,
+        CommonModule,
     ],
     providers: [
-        provideClientHydration(withEventReplay())
+        provideClientHydration(withEventReplay()),
+        AmaService,
+        AmaAdminService
     ],
     bootstrap: [AppComponent]
 })

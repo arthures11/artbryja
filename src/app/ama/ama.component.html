@@ -1,0 +1,278 @@
+<div class="min-h-screen pt-24 px-4">
+  <div class="max-w-3xl mx-auto">
+
+    <!-- Header Section -->
+    <div class="text-center mb-16">
+      <h1 class="text-4xl font-bold mb-6 text-gray-300">Ask Me Anything</h1>
+      <p class="text-xl font-light mb-8 text-gray-400">your personal questions to me</p>
+
+      <div class="space-y-4 text-lg text-gray-500">
+        <p>
+          I usually respond with the speed of light (unless I am currently busy working 😄)
+        </p>
+        <p>
+          This is <strong class="text-white">fully anonymous</strong>, fully personal.
+          You will get an answer for <strong class="text-white">any</strong> question you ask.
+        </p>
+        <p class="text-xs text-gray-500">
+  Spam will be removed 🤠
+</p>
+      </div>
+    </div>
+
+    <!-- Question Form -->
+    <div class="mb-16">
+      <div class="bg-gray-900 border border-gray-800 rounded-lg p-6">
+        <h2 class="text-2xl font-bold mb-8 text-center text-gray-300">Ask Your Question</h2>
+
+        <div class="form-group mb-6">
+          <label for="question" class="block text-sm font-medium text-gray-400 mb-2">
+            Your Question
+          </label>
+          <textarea
+            id="question"
+            [(ngModel)]="question"
+            name="question"
+            placeholder="What's on your mind? Ask me anything..."
+            rows="4"
+            [disabled]="isSubmitting"
+            class="w-full bg-black border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500"
+          ></textarea>
+        </div>
+
+        <div class="form-group mb-8">
+          <label for="email" class="block text-sm font-medium text-gray-400 mb-2">
+            Auto-Notify me by email when answered (optional)
+          </label>
+          <input
+            type="email"
+            id="email"
+            [(ngModel)]="email"
+            (input)="onEmailInput()"
+            name="email"
+            placeholder="Your email address"
+            [disabled]="isSubmitting"
+            class="w-full bg-black border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500"
+          >
+        </div>
+
+        <button
+          class="cursor-pointer w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          (click)="submitQuestion()"
+          [disabled]="isSubmitting || !question.trim()"
+        >
+          <span *ngIf="!isSubmitting">Submit Question</span>
+          <span *ngIf="isSubmitting">Submitting...</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Questions History Section -->
+    <div class="mb-16">
+      <div class="bg-gray-900 border border-gray-800 rounded-lg p-6">
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="text-2xl font-bold text-gray-300">Your Questions</h2>
+          <button
+            class="text-sm bg-gray-700 hover:bg-gray-600 text-gray-300 px-4 py-2 rounded-lg transition-colors"
+            (click)="copySessionLink()"
+          >
+            📋 Copy Session Link
+          </button>
+        </div>
+
+        <!-- Stats -->
+        <div class="flex gap-4 mb-6 flex-wrap" *ngIf="totalQuestions > 0">
+          <div class="bg-black border border-gray-700 rounded-lg px-4 py-2">
+            <span class="text-gray-400 text-sm">Total:</span>
+            <span class="text-white font-bold ml-2">{{ totalQuestions }}</span>
+          </div>
+          <div class="bg-black border border-green-700 rounded-lg px-4 py-2">
+            <span class="text-green-400 text-sm">Answered:</span>
+            <span class="text-green-400 font-bold ml-2">{{ answeredCount }}</span>
+          </div>
+          <div class="bg-black border border-yellow-700 rounded-lg px-4 py-2">
+            <span class="text-yellow-400 text-sm">Pending:</span>
+            <span class="text-yellow-400 font-bold ml-2">{{ pendingCount }}</span>
+          </div>
+        </div>
+
+        <!-- Loading State -->
+        <div *ngIf="isLoadingHistory" class="text-center py-8">
+          <div class="text-gray-400">Loading your questions...</div>
+        </div>
+
+        <!-- Empty State -->
+        <div *ngIf="!isLoadingHistory && questionsHistory.length === 0" class="text-center py-8">
+          <div class="text-5xl mb-4">💬</div>
+          <p class="text-gray-400 text-lg">No questions yet</p>
+          <p class="text-gray-500 text-sm mt-2">Your questions will appear here after you submit them.</p>
+        </div>
+
+        <!-- Questions List -->
+        <div *ngIf="!isLoadingHistory && questionsHistory.length > 0" class="space-y-4">
+          <div
+            *ngFor="let q of questionsHistory"
+            class="bg-black border rounded-lg p-4 transition-all"
+            [ngClass]="{
+              'border-green-700': q.is_answered,
+              'border-gray-700': !q.is_answered
+            }"
+          >
+            <!-- Question Header -->
+            <div class="flex justify-between items-start mb-3">
+              <div class="flex items-center gap-2">
+                <span
+                  class="px-2 py-1 rounded text-xs font-medium"
+                  [ngClass]="{
+                    'bg-green-900 text-green-400': q.is_answered,
+                    'bg-yellow-900 text-yellow-400': !q.is_answered
+                  }"
+                >
+                  {{ q.is_answered ? '✓ Answered' : '⏳ Pending' }}
+                </span>
+              </div>
+              <span class="text-gray-500 text-xs">{{ formatDate(q.created_at) }}</span>
+            </div>
+
+            <!-- Question Content -->
+            <div class="mb-3">
+              <p class="text-sm text-gray-500 mb-1">Your question:</p>
+              <p class="text-gray-300">{{ q.content }}</p>
+            </div>
+
+            <!-- Answer (if available) -->
+            <div *ngIf="q.is_answered && q.answer" class="mt-4 pt-4 border-t border-gray-700">
+              <p class="text-sm text-green-500 mb-1">Answer:</p>
+              <p class="text-gray-300">{{ q.answer }}</p>
+              <p *ngIf="q.answered_at" class="text-gray-500 text-xs mt-2">
+                Answered on {{ formatDate(q.answered_at) }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination Controls -->
+        <div *ngIf="totalPages > 1" class="mt-6 flex justify-center items-center gap-2">
+          <!-- Previous Button -->
+          <button
+            class="px-3 py-2 rounded-lg text-sm transition-colors"
+            [ngClass]="{
+              'bg-gray-700 hover:bg-gray-600 text-gray-300': currentPage > 1,
+              'bg-gray-800 text-gray-600 cursor-not-allowed': currentPage <= 1
+            }"
+            [disabled]="currentPage <= 1"
+            (click)="previousPage()"
+          >
+            ← Prev
+          </button>
+
+          <!-- Page Numbers -->
+          <div class="flex gap-1">
+            <button
+              *ngFor="let page of pageNumbers"
+              class="px-3 py-2 rounded-lg text-sm transition-colors"
+              [ngClass]="{
+                'bg-blue-600 text-white': page === currentPage,
+                'bg-gray-700 hover:bg-gray-600 text-gray-300': page !== currentPage
+              }"
+              (click)="goToPage(page)"
+            >
+              {{ page }}
+            </button>
+          </div>
+
+          <!-- Next Button -->
+          <button
+            class="px-3 py-2 rounded-lg text-sm transition-colors"
+            [ngClass]="{
+              'bg-gray-700 hover:bg-gray-600 text-gray-300': hasMore,
+              'bg-gray-800 text-gray-600 cursor-not-allowed': !hasMore
+            }"
+            [disabled]="!hasMore"
+            (click)="nextPage()"
+          >
+            Next →
+          </button>
+        </div>
+
+        <!-- Page Info -->
+        <div *ngIf="totalPages > 1" class="mt-3 text-center text-gray-500 text-sm">
+          Page {{ currentPage }} of {{ totalPages }} ({{ totalQuestions }} total questions)
+        </div>
+
+        <!-- Session Info -->
+        <div class="mt-6 pt-4 border-t border-gray-700">
+          <p class="text-gray-500 text-sm text-center">
+            💡 <strong>Tip:</strong> Copy your session link to access your questions from any device or browser.
+            Your questions are tied to your unique session ID.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notification -->
+    <div
+      *ngIf="showNotification"
+      class="fixed top-20 right-4 z-50 rounded-lg p-4 shadow-lg transition-all duration-300"
+      [ngClass]="{
+        'bg-green-900 border border-green-700': notificationType === 'success',
+        'bg-red-900 border border-red-700': notificationType === 'error'
+      }"
+    >
+      <div class="flex items-center gap-3">
+        <span [ngClass]="{
+          'text-green-400': notificationType === 'success',
+          'text-red-400': notificationType === 'error'
+        }" class="text-lg">
+          {{ notificationType === 'success' ? '✓' : '✕' }}
+        </span>
+        <span class="text-gray-300">{{ notificationMessage }}</span>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="bg-gray-900 border border-gray-800 rounded-lg p-8">
+      <h2 class="text-2xl font-bold mb-8 text-center text-gray-300">FAQ</h2>
+
+      <div class="space-y-8">
+        <div class="faq-item">
+          <h3 class="text-lg font-bold mb-3 text-blue-400">How quickly will I get an answer?</h3>
+          <p class="text-gray-400">
+            Typically within minutes if I'm available. If I'm busy or working, it might take a bit longer,
+            but I always respond.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="text-lg font-bold mb-3 text-blue-400">Is this really anonymous?</h3>
+          <p class="text-gray-400">
+            Yes, absolutely! No personal information is collected unless you choose to provide
+            an email for notifications.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="text-lg font-bold mb-3 text-blue-400">What kind of questions can I ask?</h3>
+          <p class="text-gray-400">
+            Any question at all! Personal, professional, technical, philosophical - I'm here for it all.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="text-lg font-bold mb-3 text-blue-400">Will my question be public?</h3>
+          <p class="text-gray-400">
+            No. Each question is private unless you choose to share your unique session link.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="text-lg font-bold mb-3 text-blue-400">How do I access my questions from another device?</h3>
+          <p class="text-gray-400">
+            Click "Copy Session Link" and open it on any device. Your questions are tied to your unique session ID,
+            so you can access them from anywhere.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
