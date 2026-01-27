@@ -9,6 +9,7 @@ import { AmaService, QuestionResponse, WebSocketMessage } from './ama.service';
   styleUrls: ['./ama.component.css']
 })
 export class AmaComponent implements OnInit, OnDestroy {
+    // WebSocket is now handled globally in app.component.ts
   question: string = '';
   email: string = '';
   isSubmitting: boolean = false;
@@ -26,8 +27,7 @@ export class AmaComponent implements OnInit, OnDestroy {
   totalPages: number = 0;
   hasMore: boolean = false;
 
-  // WebSocket subscription
-  private wsSubscription: Subscription | null = null;
+  // WebSocket is now handled globally in app.component.ts
 
   constructor(private amaService: AmaService) {}
 
@@ -62,16 +62,11 @@ export class AmaComponent implements OnInit, OnDestroy {
     // Load questions history
     this.loadQuestionsHistory();
 
-    // Connect to WebSocket for real-time updates
-    this.connectWebSocket();
+    // WebSocket is now handled globally in app.component.ts
   }
 
   ngOnDestroy(): void {
-    // Clean up WebSocket connection
-    if (this.wsSubscription) {
-      this.wsSubscription.unsubscribe();
-    }
-    this.amaService.disconnectWebSocket();
+    // WebSocket is now handled globally in app.component.ts
   }
 
   generateUserId(): string {
@@ -140,36 +135,8 @@ export class AmaComponent implements OnInit, OnDestroy {
     return pages;
   }
 
-  connectWebSocket(): void {
-    this.wsSubscription = this.amaService.connectWebSocket(this.userId).subscribe({
-      next: (message: WebSocketMessage) => {
-        this.handleWebSocketMessage(message);
-      },
-      error: (error) => {
-        console.error('WebSocket error:', error);
-      }
-    });
-  }
-
-  handleWebSocketMessage(message: WebSocketMessage): void {
-    switch (message.type) {
-      case 'answer_received':
-        // Update the question in history
-        const answeredQuestion = message.payload as QuestionResponse;
-        const index = this.questionsHistory.findIndex(q => q.hash_id === answeredQuestion.hash_id);
-        if (index !== -1) {
-          this.questionsHistory[index] = answeredQuestion;
-        }
-        this.showNotificationMessage('Your question has been answered!', 'success');
-        break;
-      case 'pong':
-        // Heartbeat response
-        console.log('WebSocket heartbeat received');
-        break;
-      default:
-        console.log('Unknown WebSocket message type:', message.type);
-    }
-  }
+  // WebSocket and notifications are now handled globally in app.component.ts
+  // This component focuses on UI updates and question management
 
   submitQuestion(): void {
     if (!this.question.trim()) {

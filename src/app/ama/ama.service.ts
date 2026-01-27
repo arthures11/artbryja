@@ -52,6 +52,7 @@ export class AmaService {
   private wsUrl = 'wss://artbryja.fly.dev/api/v1/ws';
   private ws: WebSocket | null = null;
   private wsMessages$ = new Subject<WebSocketMessage>();
+  private isConnecting: boolean = false;
 
   constructor(private http: HttpClient) {}
 
@@ -96,6 +97,13 @@ export class AmaService {
    * Connect to WebSocket for real-time updates
    */
   connectWebSocket(anonymousId: string): Observable<WebSocketMessage> {
+    // Prevent multiple connection attempts
+    if (this.isConnecting || (this.ws && this.ws.readyState === WebSocket.OPEN)) {
+      return this.wsMessages$.asObservable();
+    }
+
+    this.isConnecting = true;
+
     if (this.ws) {
       this.ws.close();
     }
@@ -104,6 +112,7 @@ export class AmaService {
 
     this.ws.onopen = () => {
       console.log('WebSocket connected');
+      this.isConnecting = false; // Connection successful
       // Send ping every 30 seconds to keep connection alive
       setInterval(() => {
         if (this.ws && this.ws.readyState === WebSocket.OPEN) {
@@ -127,12 +136,8 @@ export class AmaService {
 
     this.ws.onclose = () => {
       console.log('WebSocket disconnected');
-      // Attempt to reconnect after 5 seconds
-      setTimeout(() => {
-        if (anonymousId) {
-          this.connectWebSocket(anonymousId);
-        }
-      }, 5000);
+      this.isConnecting = false; // Reset connecting flag
+      // Note: We don't auto-reconnect here since component handles reconnection
     };
 
     return this.wsMessages$.asObservable();
@@ -146,6 +151,7 @@ export class AmaService {
       this.ws.close();
       this.ws = null;
     }
+    this.isConnecting = false; // Reset connecting flag
   }
 
   /**
